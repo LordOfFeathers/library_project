@@ -34,7 +34,6 @@ def add_book(title, author, year):  # добавление новой книги
         for item in library_rows:
             books_id_list.append(int(item['id']))
             books_list.append(item)
-        # print(books_id_list)
         while new_id in books_id_list:
             new_id += 1
     with open('library.csv', 'w', encoding='utf-8') as library_csv:
@@ -54,7 +53,7 @@ def add_book(title, author, year):  # добавление новой книги
     return new_id
 
 
-def delete(id):
+def delete(id):  # удаление книги
     with open('library.csv', encoding='utf-8') as library_csv:
         library_rows = csv.DictReader(library_csv)
         with open('temporary.csv', mode='w', encoding='utf-8') as file:
@@ -74,7 +73,7 @@ def delete(id):
     return id
 
 
-def change(id):
+def change(id):  # изменение статуса
     with open('library.csv', encoding='utf-8') as library_csv:
         library_rows = csv.DictReader(library_csv)
         with open('temporary.csv', mode='w', encoding='utf-8') as file:
@@ -119,7 +118,7 @@ print('To end the program, enter "exit"')
 
 while (command := input().lower()) != 'exit':
     match command:
-        case 'find':
+        case 'find':  # найти книгу
             print('Enter title, author or year of book:')
             book = str(input()).lower()
             local_search = search(book)
@@ -179,19 +178,3 @@ while (command := input().lower()) != 'exit':
             print(f'The book {temp_id} was changed')
         case _:
             print('Unknown command. Please enter one of available command')
-
-
-#  def libraryUsing():
-#    if temp == x:  # добавление новой книги
-#        pass
-#    elif temp == y:  # удаление книги
-#        pass
-#    elif temp == z:  # поиск книги
-#        pass
-#    elif temp == u:  # отображение всех книг
-#        pass
-#    elif temp == d:  # изменение статуса книги
-#        pass
-#    else:
-#        print('Книга не найдена.
-# Пожалуйста, проверьте правильность введённых данных.')
