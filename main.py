@@ -2,7 +2,7 @@ import csv
 import os
 
 
-def search(data):  # поиск книг
+def search(data):  # поиск книг или всего списка
     with open('library.csv', encoding='utf-8') as library_csv:
         library_rows = csv.DictReader(library_csv)
         output = []
