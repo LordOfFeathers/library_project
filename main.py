@@ -130,6 +130,7 @@ while (command := input().lower()) != 'exit':
                     f"Year: {item['year']}; "
                     f"Status: {item['status']}"
                     )
+
         case 'list':  # вывести полный список имеющихся книг
             list_books = search(command)
             print(list_books)
@@ -141,6 +142,7 @@ while (command := input().lower()) != 'exit':
                     f"Year: {item['year']}; "
                     f"Status: {item['status']}"
                     )
+
         case 'add':  # добавить книгу
             title = input('Please enter the title of the book: ')
             while title.strip() == '':
@@ -157,6 +159,7 @@ while (command := input().lower()) != 'exit':
                              'Please enter the year the book was published: ')
             temp_id = add_book(title, author, int(year))
             print(f'Book added! It is registered under ID {temp_id}')
+
         case 'delete':  # удалить книгу
             temp_id = input('Please enter the ID of book you wat to remove: ')
             while temp_id.isdigit() is not True:
@@ -166,6 +169,7 @@ while (command := input().lower()) != 'exit':
                     )
             delete(str(temp_id))
             print(f'The book {temp_id} was deleted if it existed')
+
         case 'change':  # изменить статус книги
             temp_id = input('Please enter the ID of the book '
                             'wich status you want to change: ')
@@ -176,5 +180,6 @@ while (command := input().lower()) != 'exit':
                     )
             change(str(temp_id))
             print(f'The book {temp_id} was changed')
+
         case _:
             print('Unknown command. Please enter one of available command')
